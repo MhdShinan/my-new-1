@@ -5,7 +5,77 @@ AOS.init({
 });
 
 // Add your javascript here
+//new
 
+const sections = {
+  section3: {
+    currentImageIndex: 0,
+    images: [
+        "images/project-2.jpg",
+        "images/project-1.jpg",
+        "images/project-3.jpg"
+    ]
+},
+section4: {
+  currentImageIndex: 0,
+  images: [
+      "images/project-2.jpg",
+      "images/project-1.jpg",
+      "images/project-3.jpg"
+  ]
+},
+section5: {
+  currentImageIndex: 0,
+  images: [
+      "images/project-2.jpg",
+      "images/project-1.jpg",
+      "images/project-3.jpg"
+  ]
+},
+section6: {
+  currentImageIndex: 0,
+  images: [
+      "images/project-2.jpg",
+      "images/project-1.jpg",
+      "images/project-3.jpg"
+  ]
+},
+
+};
+
+function showNextImage(sectionId) {
+  const section = sections[sectionId];
+  const images = document.querySelector(`#${sectionId} .images-container`);
+  const currentImage = images.querySelector('.current-image');
+
+  section.currentImageIndex = (section.currentImageIndex + 1) % section.images.length;
+
+  updateImage(sectionId);
+}
+
+function showPreviousImage(sectionId) {
+  const section = sections[sectionId];
+  const images = document.querySelector(`#${sectionId} .images-container`);
+  const currentImage = images.querySelector('.current-image');
+
+  section.currentImageIndex = (section.currentImageIndex - 1 + section.images.length) % section.images.length;
+
+  updateImage(sectionId);
+}
+
+function updateImage(sectionId) {
+  const section = sections[sectionId];
+  const images = document.querySelector(`#${sectionId} .images-container`);
+  const imageElements = images.querySelectorAll('img');
+
+  imageElements.forEach((img, index) => {
+      img.classList.toggle('current-image', index === section.currentImageIndex);
+      img.classList.toggle('hidden-image', index !== section.currentImageIndex);
+  });
+}
+
+
+//new
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const feedbackMessage = document.getElementById('feedback-message');
