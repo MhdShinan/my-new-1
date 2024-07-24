@@ -1,0 +1,20 @@
+{
+  "name": "material-resume_free_1-2-1",
+  "version": "1.0.0",
+  "description": "Directory Structure\r -------------------\r css\\              - Stylesheets CSS files for the template.\r images\\           - Images used in template.\r scripts\\          - JavaScript used in the template.\r styles\\           - SCSS source files for stylesheets CSS. Available in Purchased versions only.\r favicon.ico       - Favicon placeholder provided for the template.\r index.html        - Main HTML page to open the template in browser.\r *.html            - Additional HTML pages (if any).\r LICENSE-*.txt     - License file as per your downloaded variant.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "nodemailer": "^6.9.14",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  }
+}
