@@ -2,13 +2,12 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const path = require('path');
+const http = require('http');
 
-
+// Create the Express app
 const app = express();
-const port = process.env.PORT || 3000;
 
 // Serve static files from the 'css', 'scripts', and 'images' directories
-
 app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/scripts', express.static(path.join(__dirname, 'scripts')));
 app.use('/images', express.static(path.join(__dirname, 'images')));
@@ -34,7 +33,7 @@ app.post('/send-email', (req, res) => {
     service: 'gmail',
     auth: {
       user: 'm.mohamed.shinan@gmail.com',
-      pass: 'bxey fkyf wztb dhmd' // Use your app password
+      pass: 'bxey fkyf wztb dhmd' 
     }
   });
 
@@ -55,6 +54,14 @@ app.post('/send-email', (req, res) => {
   });
 });
 
+// Start server on port 3000
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
+});
+
+// Create an HTTP server and listen on port 80
+const server = http.createServer(app);
+server.listen(80, () => {
+  console.log('Server also running on port 80');
 });
