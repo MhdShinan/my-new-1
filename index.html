@@ -26,37 +26,43 @@
     </noscript>
   </head>
   <body class="bg-light" id="top">
-    
     <header class="d-print-none">
       <div class="container text-center text-lg-left">
         <div class="pt-4 clearfix">
-          <h1 class="site-title mb-0">Mohamed Shinan</h1>
-          <div class="site-nav"> 
+          <div class="site-nav">
             <nav role="navigation">
+              <div class="hamburger" onclick="openNav()">&#9776;</div>
               <ul class="nav justify-content-center">
-                <li class="nav-item"><a class="nav-link" href="#about" title="About"><span class="menu-title">About</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#skills" title="Skills"><span class="menu-title">Skills</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#experience" title="Experience"><span class="menu-title">Experience</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#education" title="Education"><span class="menu-title">Education</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#Projects" title="Projects"><span class="menu-title">Projects</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#Courses" title="Courses"><span class="menu-title">Courses</span></a>
-                </li>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#Extra" title="Extra"><span class="menu-title">Extra Curriculam</span></a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#contact" title="Contact"><span class="menu-title">Contact</span></a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="#about" title="About"><span class="menu-title">About</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#skills" title="Skills"><span class="menu-title">Skills</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#experience" title="Experience"><span class="menu-title">Experience</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#education" title="Education"><span class="menu-title">Education</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#Projects" title="Projects"><span class="menu-title">Projects</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#Courses" title="Courses"><span class="menu-title">Courses</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#Extra" title="Extra"><span class="menu-title">Extra Curriculam</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact" title="Contact"><span class="menu-title">Contact</span></a></li>
               </ul>
             </nav>
           </div>
         </div>
       </div>
     </header>
+  
+    <!-- Sidebar menu for mobile and tablet -->
+    <div id="mobileNav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="sidebar-image">
+        <img src="images/avatar.jpg" alt="Sidebar Image">
+      </div>
+      <a href="#about" onclick="closeNav()">About</a>
+      <a href="#skills" onclick="closeNav()">Skills</a>
+      <a href="#experience" onclick="closeNav()">Experience</a>
+      <a href="#education" onclick="closeNav()">Education</a>
+      <a href="#Projects" onclick="closeNav()">Projects</a>
+      <a href="#Courses" onclick="closeNav()">Courses</a>
+      <a href="#Extra" onclick="closeNav()">Extra Curriculam</a>
+      <a href="#contact" onclick="closeNav()">Contact</a>
+    </div>    
     <div class="page-content">
       <div class="container">
 <div class="resume-container">

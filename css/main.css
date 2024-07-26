@@ -1,4 +1,94 @@
-/*new 2*/
+
+/* Mobile and Tablet Styles */
+@media (max-width: 768px) {
+  .header-social {
+    text-align: center;
+  }
+
+  .header-social .nav {
+    display: flex;
+    flex-direction: row; /* Arrange items horizontally */
+    justify-content: center;
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+
+  .header-social .nav-item {
+    margin: 0 10px; /* Adjust as needed for spacing */
+  }
+
+  .header-social .nav-link {
+    font-size: 1.5rem; /* Adjust as needed */
+  }
+}
+
+/* Hamburger icon */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+}
+
+/* Sidebar */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidebar-image {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.sidebar-image img {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav {
+    display: none;
+  }
+}
 
 /* Basic styling for image container */
 .image-container {
@@ -181,6 +271,13 @@
   height: auto; /* Maintain aspect ratio */
   max-width: 300px; /* Limit width for larger screens */
   transition: opacity 0.3s ease-in-out;
+}
+
+.showcase {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden-image {

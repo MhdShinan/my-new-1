@@ -1,8 +1,22 @@
+
+
+
 // Initialize AOS Animations
 AOS.init({
   anchorPlacement: 'top-left',
   duration: 1000
 });
+
+
+function openNav() {
+  document.getElementById("mobileNav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mobileNav").style.width = "0";
+}
+
+
 
 // Function to handle opening modals
 function openModal(modalId, imageSrc) {
@@ -132,8 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
  
 });
-
-
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const feedbackMessage = document.getElementById('feedback-message');
@@ -156,21 +168,64 @@ document.addEventListener('DOMContentLoaded', () => {
       const result = await response.text();
 
       if (response.ok) {
-        feedbackMessage.textContent = 'Email sent successfully!';
-        feedbackMessage.style.color = 'green';
-        feedbackMessage.insertAdjacentHTML('beforeend', '<img src="/images/cunning.gif" alt="Success" class="feedback-image">');
+        displayTypewriterEffect('Email sent successfully!', 'green', '/images/cunning.gif');
       } else {
-        feedbackMessage.textContent = 'Failed to send email.';
-        feedbackMessage.style.color = 'red';
-        feedbackMessage.insertAdjacentHTML('beforeend', '<img src="/images/sad.gif" alt="Failure" class="feedback-image">');
+        displayTypewriterEffect('Failed to send email.', 'red', '/images/sad.gif');
       }
     } catch (error) {
-      feedbackMessage.textContent = 'An error occurred: ' + error.message;
-      feedbackMessage.style.color = 'red';
-      feedbackMessage.insertAdjacentHTML('beforeend', '<img src="/images/sad.gif" alt="Failure" class="feedback-image">');
+      displayTypewriterEffect('An error occurred: ' + error.message, 'red', '/images/sad.gif');
     } finally {
       // Hide the loading GIF after the request completes
       loading.style.display = 'none';
     }
   });
+
+  function displayTypewriterEffect(message, color, imageUrl) {
+    feedbackMessage.textContent = '';
+    feedbackMessage.style.color = color;
+    feedbackMessage.insertAdjacentHTML('beforeend', `<img src="${imageUrl}" alt="Feedback" class="feedback-image">`);
+
+    let i = 0;
+    function typeWriter() {
+      if (i < message.length) {
+        feedbackMessage.textContent += message.charAt(i);
+        i++;
+        setTimeout(typeWriter, 50); // Adjust the typing speed here
+      }
+    }
+    typeWriter();
+  }
 });
+
+
+
+function showPreviousImage(sectionId) {
+  const section = document.getElementById(sectionId);
+  const showcase = section.querySelector('.showcase');
+  const images = showcase.querySelectorAll('.images-container img');
+  let currentIndex = Array.from(images).findIndex(image => image.classList.contains('current-image'));
+
+  images[currentIndex].classList.remove('current-image');
+  images[currentIndex].classList.add('hidden-image');
+
+  currentIndex = (currentIndex - 1 + images.length) % images.length;
+
+  images[currentIndex].classList.remove('hidden-image');
+  images[currentIndex].classList.add('current-image');
+}
+
+function showNextImage(sectionId) {
+  const section = document.getElementById(sectionId);
+  const showcase = section.querySelector('.showcase');
+  const images = showcase.querySelectorAll('.images-container img');
+  let currentIndex = Array.from(images).findIndex(image => image.classList.contains('current-image'));
+
+  images[currentIndex].classList.remove('current-image');
+  images[currentIndex].classList.add('hidden-image');
+
+  currentIndex = (currentIndex + 1) % images.length;
+
+  images[currentIndex].classList.remove('hidden-image');
+  images[currentIndex].classList.add('current-image');
+}
+
