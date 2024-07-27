@@ -460,7 +460,7 @@ html, body {
   font-size: 0.85rem; }
 
 .text-teal {
-  color: var(--bs-teal); }
+  color: var(--bs-blue); }
 
 footer a:not(.nav-link) {
   color: inherit;
