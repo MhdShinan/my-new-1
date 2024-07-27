@@ -1,3 +1,38 @@
+/*additional certificate*/
+@media (max-width: 768px) {
+  .p-5 {
+      padding: 1.5rem;
+  }
+
+  .my-5 {
+      margin-top: 1.5rem;
+      margin-bottom: 1.5rem;
+  }
+
+  .course-title {
+      font-size: 1.25rem;
+  }
+
+  ul {
+      padding-left: 1rem;
+  }
+
+  li {
+      font-size: 0.875rem;
+  }
+}
+
+/* Responsive Design for mobile and tablet views */
+@media (max-width: 1024px) {
+  .course-gallery {
+      flex-direction: column;
+  }
+
+  .course-item {
+      flex: 1 1 100%;
+      max-width: 100%;
+  }
+}
 
 /* Mobile and Tablet Styles */
 @media (max-width: 768px) {
