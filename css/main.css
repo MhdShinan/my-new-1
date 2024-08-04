@@ -1,3 +1,164 @@
+/*logn*/
+.login-button {
+  background-color: #007bff; /* Blue background */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px; /* Oval shape */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode styling */
+body.dark-mode .form-label {
+  color: white !important; /* Change text color to black in dark mode */
+}
+
+
+body.dark-mode {
+  background-color: #000 ;
+  color: white;
+}
+
+body.dark-mode .header,
+body.dark-mode .sidenav {
+  background-color: #000 ;
+}
+
+body.dark-mode .sidenav a {
+  color: #818181;
+}
+
+body.dark-mode .sidenav a:hover {
+  color: blue;
+}
+
+body.dark-mode .toggle-label {
+  background: #333 ;
+}
+
+body.dark-mode .sun-icon {
+  opacity: 0;
+}
+
+body.dark-mode .moon-icon {
+  opacity: 1;
+}
+
+/* Additional dark mode styles for other elements if needed */
+body.dark-mode .container,
+body.dark-mode .cover,
+body.dark-mode .footer {
+  background-color: #000 ;
+}
+
+body.dark-mode .container,
+body.dark-mode .cover,
+body.dark-mode .footer a:not(.nav-link) {
+  color: white;
+}
+
+/* Ensure text remains readable in dark mode */
+body.dark-mode .nav-link {
+  color: white;
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link:focus {
+  text-decoration: underline white;
+}
+
+/* Dark mode styles for specific elements 
+body.dark-mode .shadow-1-strong,
+body.dark-mode .bg-white,
+body.dark-mode .my-5 {
+  background-color: black ;  
+  color: white;  
+}*/
+body.dark-mode .shadow-1-strong,
+body.dark-mode .shadow-1-strong.bg-white.my-5.p-5 {
+  background-color: black !important;
+  color: white; /* Ensure text is readable */ 
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5) !important; /* White shadow */
+
+}
+
+body.dark-mode .shadow-1-strong.bg-white.my-5.p-5 {
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5) !important; /* Change shadow to white */
+}
+
+body.dark-mode .bg-white {
+  background-color: black ; /* Ensure this rule overrides others */
+}
+
+/* Additional styles to ensure readability in dark mode */
+body.dark-mode .shadow-1-strong,
+body.dark-mode .bg-white,
+body.dark-mode .my-5 {
+  color: white; /* Ensure text is readable against the dark background */
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  display: none;
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 30px;
+  position: relative;
+  transition: background 0.3s ease;
+  padding: 0 5px; /* Added padding to ensure icons stay inside the button */
+}
+
+.theme-toggle:checked + .toggle-label {
+  background: #333;
+}
+
+.toggle-icon {
+  font-size: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.sun-icon {
+  color: yellow;
+}
+
+.moon-icon {
+  color: white;
+  opacity: 0;
+}
+
+.theme-toggle:checked + .toggle-label .sun-icon {
+  opacity: 0;
+}
+
+.theme-toggle:checked + .toggle-label .moon-icon {
+  opacity: 1;
+}
+
+
 /*additional certificate*/
 @media (max-width: 768px) {
   .p-5 {
@@ -56,7 +217,6 @@
     font-size: 1.5rem; /* Adjust as needed */
   }
 }
-
 /* Hamburger icon */
 .hamburger {
   display: none;
@@ -73,7 +233,7 @@
   height: 100%;
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   top: 0;
   left: 0;
   background-color: white;
@@ -92,15 +252,25 @@
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  text-decoration: underline blue;
 }
 
 .sidenav .closebtn {
   position: absolute;
-  top: 0;
+  top: 10px;
   right: 25px;
   font-size: 36px;
-  margin-left: 50px;
+  color: black; /* Adjust as needed */
+  cursor: pointer;
+  user-select: none; /* Prevent text selection */
+}
+
+.sidenav .closebtn:hover {
+  color: blue; /* Adjust as needed */
+}
+
+body.dark-mode .sidenav .closebtn {
+  color: white; /* Change color to white in dark mode */
 }
 
 .sidebar-image {
@@ -124,6 +294,7 @@
     display: none;
   }
 }
+
 
 /* Basic styling for image container */
 .image-container {
@@ -436,12 +607,13 @@ html, body {
 
 .nav-link:hover,
 .nav-link:focus {
-  color: blue;
-  text-decoration: underline;
+  text-decoration: underline blue;
   opacity: 1; }
 
 .nav-item + .nav-item {
-  margin-left: 1rem; }
+  margin-left: 1rem;
+
+}
 
 .cover {
   height: 500px; }
@@ -477,23 +649,23 @@ footer a:not(.nav-link) {
 @media (max-width: 767px) {
   /* disable animations on mobile */
   [data-aos] {
-    opacity: 1 !important;
-    transform: translate(0) scale(1) !important; }
+    opacity: 1 ;
+    transform: translate(0) scale(1) ; }
   .p-5 {
-    padding: 2.5rem 2rem !important; }
+    padding: 2.5rem 2rem ; }
   .portfolio-section .m-5 {
-    margin: 2rem 0 1rem !important; }
+    margin: 2rem 0 1rem ; }
   .portfolio-reverse {
     flex-direction: column-reverse; }
   .portfolio-reverse .text-end {
-    text-align: start !important; } }
+    text-align: start ; } }
 
 @media print {
   [data-aos] {
-    opacity: 1 !important;
-    transform: translate(0) scale(1) !important; }
+    opacity: 1 ;
+    transform: translate(0) scale(1) ; }
   body.bg-light {
-    background-color: #fff !important; }
+    background-color: #fff ; }
   .container {
     width: auto;
     max-width: 100%;
@@ -504,20 +676,20 @@ footer a:not(.nav-link) {
   .cover > img {
     display: none; }
   .shadow-1-strong {
-    box-shadow: none !important; }
+    box-shadow: none ; }
   .resume-container > .my-5 {
-    margin: 0 !important; }
+    margin: 0 ; }
   .my-5.p-5 {
-    padding: 1.5rem 0 !important; }
+    padding: 1.5rem 0 ; }
   .about-section {
-    padding: 0 !important; }
+    padding: 0 ; }
   .skills-section,
   .work-experience-section,
   .education-section,
   .portfolio-section,
   .reference-section,
   .contact-section {
-    padding: 0 !important; }
+    padding: 0 ; }
   .page-break {
     padding-top: 5rem;
     page-break-before: always; } }

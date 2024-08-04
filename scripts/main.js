@@ -1,3 +1,41 @@
+//login
+document.querySelector('.login-button').addEventListener('click', function() {
+  window.location.href = 'login.html';
+});
+
+//new
+document.getElementById('theme-toggle').addEventListener('change', function() {
+  document.body.classList.toggle('dark-mode', this.checked);
+});
+// Function to update the background color of the element
+function updateElementBackground() {
+  // Check if the body has the dark-mode class
+  const isDarkMode = document.body.classList.contains('dark-mode');
+  const targetElement = document.querySelector('.shadow-1-strong.bg-white.my-5');
+  
+
+  if (targetElement) {
+    if (isDarkMode) {
+      targetElement.style.setProperty('background-color', 'black', 'important');
+    } else {
+      targetElement.style.removeProperty('background-color'); // Reset to default
+    }
+  }
+}
+
+// Function to toggle dark mode
+function toggleDarkMode() {
+  const themeToggle = document.getElementById('theme-toggle');
+  document.body.classList.toggle('dark-mode', themeToggle.checked);
+  updateElementBackground(); // Update background color when toggling
+}
+
+// Event listener for the theme toggle
+document.addEventListener('DOMContentLoaded', () => {
+  const themeToggle = document.getElementById('theme-toggle');
+  themeToggle.addEventListener('change', toggleDarkMode);
+  updateElementBackground(); // Initial update based on current mode
+});
 
 
 
@@ -15,6 +53,7 @@ function openNav() {
 function closeNav() {
   document.getElementById("mobileNav").style.width = "0";
 }
+
 
 
 
