@@ -3,6 +3,16 @@ document.querySelector('.login-button').addEventListener('click', function() {
   window.location.href = 'login.html';
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+  const loginButton = document.querySelector('.login-button');
+  loginButton.addEventListener('click', function () {
+      if (window.innerWidth <= 768) { // Adjust the screen width as needed for "mobile view"
+          window.location.href = 'login.html';
+      }
+  });
+});
+
+
 //new
 document.getElementById('theme-toggle').addEventListener('change', function() {
   document.body.classList.toggle('dark-mode', this.checked);

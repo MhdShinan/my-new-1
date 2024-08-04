@@ -16,12 +16,31 @@ app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+const users = {
+  'admin@example.com': '123'
+};
+
 // Serve the HTML form
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Handle form submission
+// Handle login form submission
+app.post('/login', (req, res) => {
+  const { email, password } = req.body;
+
+  if (users[email] && users[email] === password) {
+    res.sendFile(path.join(__dirname, 'adminpanel.html'));
+  } else {
+    res.send('<script>alert("Invalid email or password!"); window.location.href="/";</script>');
+  }
+});
+
+// Serve the HTML form
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+// Handle  email form submission
 app.post('/send-email', (req, res) => {
   const { name, email, message } = req.body;
 
@@ -53,6 +72,8 @@ app.post('/send-email', (req, res) => {
     res.status(200).send('Email sent: ' + info.response);
   });
 });
+
+
 
 // Start server on port 3000
 const port = process.env.PORT || 3000;
