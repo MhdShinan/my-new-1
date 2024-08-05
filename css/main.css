@@ -1,3 +1,22 @@
+/*css*/
+.progress-bar {
+  height: 20px;
+  transition: width 0.6s ease;
+}
+
+.bg-expert {
+  background-color: #00bfff; /* Blue */
+}
+
+.bg-average {
+  background-color: #ff69b4; /* Purple */
+}
+
+.bg-beginner {
+  background-color: #ffa500; /* Orange */
+}
+
+
 /*logn*/
 
 @media (max-width: 768px) {

@@ -1,6 +1,7 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
 const path = require('path');
 const http = require('http');
 
@@ -36,11 +37,7 @@ app.post('/login', (req, res) => {
   }
 });
 
-// Serve the HTML form
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-// Handle  email form submission
+// Handle email form submission
 app.post('/send-email', (req, res) => {
   const { name, email, message } = req.body;
 
@@ -73,7 +70,67 @@ app.post('/send-email', (req, res) => {
   });
 });
 
+// Connect to MongoDB
+mongoose.connect('mongodb://localhost:27017/admin-panel', {});
 
+// Define skill schema and model
+const skillSchema = new mongoose.Schema({
+  name: String,
+  level: String,
+  percentage: Number,
+  column: Number
+});
+
+const Skill = mongoose.model('Skill', skillSchema);
+
+// Route to get skills from MongoDB
+app.get('/get-skills', async (req, res) => {
+  try {
+    const skills = await Skill.find({});
+    
+    const skillClass = (level) => {
+      switch (level) {
+        case 'Expert': return 'bg-info';
+        case 'Average': return 'bg-warning';
+        case 'Beginner': return 'bg-danger';
+        default: return 'bg-secondary';
+      }
+    };
+
+    const formattedSkills = skills.map(skill => ({
+      name: skill.name,
+      level: skill.level,
+      percentage: skill.percentage,
+      column: skill.column,
+      skillClass: skillClass(skill.level)
+    }));
+
+    res.json(formattedSkills);
+  } catch (error) {
+    console.error('Error fetching skills:', error);
+    res.status(500).send('Error fetching skills');
+  }
+});
+
+// Route to save skills to MongoDB
+app.post('/save-skill', async (req, res) => {
+  try {
+    const { name, level, percentage, column } = req.body;
+
+    const newSkill = new Skill({
+      name,
+      level,
+      percentage,
+      column
+    });
+
+    await newSkill.save();
+    res.status(201).send('Skill saved successfully!');
+  } catch (error) {
+    console.error('Error saving skill:', error);
+    res.status(500).send('Error saving skill');
+  }
+});
 
 // Start server on port 3000
 const port = process.env.PORT || 3000;

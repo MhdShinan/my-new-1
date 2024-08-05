@@ -1,3 +1,5 @@
+
+
 //login
 document.querySelector('.login-button').addEventListener('click', function() {
   window.location.href = 'login.html';
@@ -10,6 +12,40 @@ document.addEventListener('DOMContentLoaded', function () {
           window.location.href = 'login.html';
       }
   });
+});
+
+//updating skills 
+document.addEventListener('DOMContentLoaded', function () {
+  fetch('/get-skills')
+      .then(response => response.json())
+      .then(skills => {
+          const column1 = document.getElementById('column-1');
+          const column2 = document.getElementById('column-2');
+
+          // Clear existing content in the columns
+          column1.innerHTML = '';
+          column2.innerHTML = '';
+
+          skills.forEach(skill => {
+              const skillElement = document.createElement('div');
+              skillElement.className = 'mb-3';
+              skillElement.innerHTML = `
+                  <span class="fw-bolder">${skill.name}</span>
+                  <div class="progress my-2 rounded" style="height: 20px">
+                      <div class="progress-bar ${skill.skillClass}" role="progressbar" style="width: ${skill.percentage}%" aria-valuenow="${skill.percentage}" aria-valuemin="0" aria-valuemax="100">${skill.level}</div>
+                  </div>
+              `;
+
+              if (skill.column === 1) {
+                  column1.appendChild(skillElement);
+              } else if (skill.column === 2) {
+                  column2.appendChild(skillElement);
+              }
+          });
+      })
+      .catch(error => {
+          console.error('Error:', error);
+      });
 });
 
 
@@ -37,12 +73,25 @@ function updateElementBackground() {
 function toggleDarkMode() {
   const themeToggle = document.getElementById('theme-toggle');
   document.body.classList.toggle('dark-mode', themeToggle.checked);
+  localStorage.setItem('theme', themeToggle.checked ? 'dark' : 'light'); // Save the theme preference
   updateElementBackground(); // Update background color when toggling
 }
 
 // Event listener for the theme toggle
 document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
+
+  // Check for saved theme preference in localStorage
+  const currentTheme = localStorage.getItem('theme') || 'dark';
+
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeToggle.checked = true;
+  } else {
+    document.body.classList.remove('dark-mode');
+    themeToggle.checked = false;
+  }
+
   themeToggle.addEventListener('change', toggleDarkMode);
   updateElementBackground(); // Initial update based on current mode
 });
