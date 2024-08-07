@@ -1,4 +1,4 @@
-document.getElementById('skillsForm').addEventListener('submit', function (e) {
+/*document.getElementById('skillsForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     const skillName = document.getElementById('skillName').value;
@@ -41,4 +41,4 @@ document.getElementById('skillsForm').addEventListener('submit', function (e) {
     .catch(error => {
         console.error('Error:', error);
     });
-});
+});*/

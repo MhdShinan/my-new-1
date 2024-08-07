@@ -1,68 +1,1060 @@
-/*css*/
-.progress-bar {
-  height: 20px;
-  transition: width 0.6s ease;
+/*card
+/* From Uiverse.io by kennyotsu */ 
+/*works janky on mobile :<*/
+.box {
+  position: relative;
+  width: 190px;
+  height: 254px;
+  transition: 200ms;
 }
 
-.bg-expert {
-  background-color: #00bfff; /* Blue */
+.box:active {
+  width: 180px;
+  height: 245px;
 }
 
-.bg-average {
-  background-color: #ff69b4; /* Purple */
+#info-card {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  transition: 700ms;
+  background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
 }
 
-.bg-beginner {
-  background-color: #ffa500; /* Orange */
+.subheader {
+  transform: translateY(160px);
+  color: rgb(134, 110, 221);
+  text-align: center;
+  width: 100%;
+}
+
+.header {
+  opacity: 0;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out-out;
+  transition-delay: 100ms;
+  position: absolute;
+  font-size: x-large;
+  font-weight: bold;
+  color: white;
+}
+
+.marker:hover ~ #info-card .header {
+  opacity: 1;
+}
+
+#hint {
+  bottom: 8px;
+  left: 12px;
+  z-index: 20;
+  font-size: 20px;
+  font-weight: bold;
+  transition: 300ms ease-in-out-out;
+  position: absolute;
+  max-width: 110px;
+  color: rgb(255, 255, 255);
+}
+
+.marker {
+  position: absolute;
+  z-index: 200;
+  width: 100%;
+  height: 100%;
+}
+
+.marker:hover {
+  cursor: pointer;
+}
+
+.marker:hover ~ #info-card #hint {
+  opacity: 0;
+}
+
+.marker:hover ~ #info-card {
+  transition: 300ms;
+  filter: brightness(1.1);
+}
+
+.box:hover #info-card::before {
+  transition: 200ms;
+  content: '';
+  opacity: 80%;
+}
+
+.grid {
+  perspective: 800px;
+  inset: 0;
+  z-index: 200;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: "mk-1 mk-2 mk-3 mk-4 mk-5"
+    "mk-6 mk-7 mk-8 mk-9 mk-10"
+    "mk-11 mk-12 mk-13 mk-14 mk-15"
+    "mk-16 mk-17 mk-18 mk-19 mk-20"
+    "mk-21 mk-22 mk-23 mk-24 mk-25";
+}
+
+#info-card::before {
+  content: '';
+  background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
+  filter: blur(2rem);
+  opacity: 30%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  transition: 200ms;
+}
+
+.mk-1 {
+  grid-area: mk-1;
+}
+
+.mk-2 {
+  grid-area: mk-2;
+}
+
+.mk-3 {
+  grid-area: mk-3;
+}
+
+.mk-4 {
+  grid-area: mk-4;
+}
+
+.mk-5 {
+  grid-area: mk-5;
+}
+
+.mk-6 {
+  grid-area: mk-6;
+}
+
+.mk-7 {
+  grid-area: mk-7;
+}
+
+.mk-8 {
+  grid-area: mk-8;
+}
+
+.mk-9 {
+  grid-area: mk-9;
+}
+
+.mk-10 {
+  grid-area: mk-10;
+}
+
+.mk-11 {
+  grid-area: mk-11;
+}
+
+.mk-12 {
+  grid-area: mk-12;
+}
+
+.mk-13 {
+  grid-area: mk-13;
+}
+
+.mk-14 {
+  grid-area: mk-14;
+}
+
+.mk-15 {
+  grid-area: mk-15;
+}
+
+.mk-16 {
+  grid-area: mk-16;
+}
+
+.mk-17 {
+  grid-area: mk-17;
+}
+
+.mk-18 {
+  grid-area: mk-18;
+}
+
+.mk-19 {
+  grid-area: mk-19;
+}
+
+.mk-20 {
+  grid-area: mk-20;
+}
+
+.mk-21 {
+  grid-area: mk-21;
+}
+
+.mk-22 {
+  grid-area: mk-22;
+}
+
+.mk-23 {
+  grid-area: mk-23;
+}
+
+.mk-24 {
+  grid-area: mk-24;
+}
+
+.mk-25 {
+  grid-area: mk-25;
+}
+
+.mk-1:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.mk-2:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.mk-3:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.mk-4:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.mk-5:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(20deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.mk-6:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.mk-7:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.mk-8:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.mk-9:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.mk-10:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(10deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.mk-11:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.mk-12:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.mk-13:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.mk-14:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(5deg) rotateZ(0deg);
 }
 
 
-/*logn*/
+.mk-15:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(0deg) rotateY(10deg) rotateZ(0deg);
+}
 
-@media (max-width: 768px) {
-  .login-button {
-      /* Styles for mobile view */
-      width: 100%;
-      font-size: 18px;
-      padding: 15px 0;
+.mk-16:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.mk-17:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.mk-18:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.mk-19:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.mk-20:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-10deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.mk-21:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(-10deg) rotateZ(0deg);
+}
+
+.mk-22:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(-5deg) rotateZ(0deg);
+}
+
+.mk-23:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(0deg) rotateZ(0deg);
+}
+
+.mk-24:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(5deg) rotateZ(0deg);
+}
+
+.mk-25:hover ~ #info-card {
+  transition: 125ms ease-in-out;
+  transform: rotateX(-20deg) rotateY(10deg) rotateZ(0deg);
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* From Uiverse.io by ElSombrero2 */ 
+
+.cards-container {
+  display: flex;
+  flex-direction: row; /* Align cards vertically */
+  gap: 10px; /* Space between cards */
+  align-items: center; /* Center cards horizontally */
+  width: 100%; /* Ensure it takes full width */
+  max-width: 800px; /* Optional: Limit maximum width */
+  margin: 0 auto; /* Center the container within its parent */
+  padding: 20px; /* Optional: Add padding around the container */
+}
+.card {
+  overflow: visible;
+  width: 190px;
+  height: 254px;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 300ms;
+  box-shadow: 0px 0px 10px 1px #000000ee;
+  border-radius: 5px;
+}
+
+.front, .back {
+  background-color: #151515;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.back::before {
+  position: absolute;
+  content: ' ';
+  display: block;
+  width: 160px;
+  height: 160%;
+  background: linear-gradient(90deg, transparent, #ff9966, #ff9966, #ff9966, #ff9966, transparent);
+  animation: rotation_481 5000ms infinite linear;
+}
+
+.back-content {
+  position: absolute;
+  width: 99%;
+  height: 99%;
+  background-color: #151515;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.card:hover .content {
+  transform: rotateY(180deg);
+}
+
+@keyframes rotation_481 {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  0% {
+    transform: rotateZ(360deg);
   }
 }
 
-.login-button {
-  background-color: #007bff; /* Blue background */
-  border: none;
+.front {
+  transform: rotateY(180deg);
   color: white;
-  padding: 10px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 50px; /* Oval shape */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.login-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+.front .front-content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.front-content .badge {
+  background-color: #00000055;
+  padding: 2px 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(2px);
+  width: fit-content;
+}
+
+.description {
+  box-shadow: 0px 0px 10px 5px #00000088;
+  width: 100%;
+  padding: 10px;
+  background-color: #00000099;
+  backdrop-filter: blur(5px);
+  border-radius: 5px;
+}
+
+.title {
+  font-size: 11px;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title p {
+  width: 50%;
+}
+
+.card-footer {
+  color: #ffffff88;
+  margin-top: 5px;
+  font-size: 8px;
+}
+
+.front .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.circle {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-color: #ffbb66;
+  position: relative;
+  filter: blur(15px);
+  animation: floating 2600ms infinite linear;
+}
+
+#bottom {
+  background-color: #ff8866;
+  left: 50px;
+  top: 0px;
+  width: 150px;
+  height: 150px;
+  animation-delay: -800ms;
+}
+
+#right {
+  background-color: #ff2233;
+  left: 160px;
+  top: -80px;
+  width: 30px;
+  height: 30px;
+  animation-delay: -1800ms;
+}
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.course-image {
+  width: auto; /* Maintain the original width */
+  height: auto; /* Maintain the original height */
+  max-width: 100%; /* Prevents the image from exceeding the width of its container */
+  max-height: 100%; /* Prevents the image from exceeding the height of its container */
+  display: block; /* Removes any extra space below the image */
+}
+
+/* CSS to stack cards vertically */
+.stack-vertically {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stack-vertically .card {
+  width: 100%;
+  margin-bottom: 10px; /* Adjust as needed */
+}
+
+.stack-vertically .course-image {
+  width: 100%; /* Ensure images scale with the card */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* From Uiverse.io by guilhermeyohan */ 
+.subscribe {
+  position: relative;
+  height: 140px;
+  width: 240px;
+  padding: 20px;
+  background-color: #FFF;
+  border-radius: 4px;
+  color: #333;
+  box-shadow: 0px 0px 60px 5px rgba(0, 0, 0, 0.4);
+}
+
+.subscribe:after {
+  position: absolute;
+  content: "";
+  right: -10px;
+  bottom: 18px;
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #1a044e;
+}
+
+.subscribe p {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 4px;
+  line-height: 28px;
+}
+
+.subscribe input {
+  position: absolute;
+  bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #d4d4d4;
+  padding: 10px;
+  width: 82%;
+  background: transparent;
+  transition: all .25s ease;
+}
+
+.subscribe input:focus {
+  outline: none;
+  border-bottom: 1px solid #0d095e;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+}
+
+.subscribe .submit-btn {
+  position: absolute;
+  border-radius: 30px;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  background-color: #0f0092;
+  color: #FFF;
+  padding: 12px 25px;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  right: -10px;
+  bottom: -20px;
+  cursor: pointer;
+  transition: all .25s ease;
+  box-shadow: -5px 6px 20px 0px rgba(26, 26, 26, 0.4);
+}
+
+.subscribe .submit-btn:hover {
+  background-color: #07013d;
+  box-shadow: -5px 6px 20px 0px rgba(88, 88, 88, 0.569);
+}
+
+/* From Uiverse.io by Praashoo7 */ 
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.up {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.down {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.card1 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 90px 5px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.instagram {
+  margin-top: 1.5em;
+  margin-left: 1.2em;
+  fill: #cc39a4;
+}
+
+.card2 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 90px 5px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.linkedin {
+  margin-top: 1.5em;
+  margin-left: -.9em;
+  fill: #03A9F4;
+}
+
+.card3 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 5px 90px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.github {
+  margin-top: -.6em;
+  margin-left: 1.2em;
+}
+
+.card4 {
+  width: 90px;
+  height: 90px;
+  outline: none;
+  border: none;
+  background: white;
+  border-radius: 5px 5px 90px 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  transition: .2s ease-in-out;
+}
+
+.facebook {
+  margin-top: -.9em;
+  margin-left: -1.2em;
+  fill: #8c9eff;
+}
+
+.card1:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #cc39a4;
+}
+
+.card1:hover .instagram {
+  fill: white;
+}
+
+.card2:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #03A9F4;
+}
+
+.card2:hover .linkedin{
+  fill: white;
+}
+
+.card3:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: black;
+}
+
+.card3:hover .github {
+  fill: white;
+}
+
+.card4:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: blue;
+}
+
+.card4:hover .facebook {
+  fill: white;
+}
+
+/* arrow keys */
+/* Media query for tablets and mobile devices */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.button-3d {
+  -webkit-appearance: none;
+  appearance: none;
+  position: relative;
+  border-width: 0;
+  padding: 0 8px;
+  min-width: 4em;
+  min-height: 4em;
+  box-sizing: border-box;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.button-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding: 8px 16px;
+  transform: translateY(0);
+  color: #fff;
+  background-image: linear-gradient(145deg, #6a11cb, #2575fc);
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  transition: transform 0.3s, border-radius 0.3s, background 10s;
+}
+
+.button-3d:active .button-top {
+  border-radius: 10px 10px 8px 8px / 8px;
+  transform: translateY(2px);
+  background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+}
+
+.button-bottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 4px;
+  left: 4px;
+  border-radius: 20px;
+  padding-top: 6px;
+  width: calc(100% - 8px);
+  height: calc(100% - 10px);
+  background-image: linear-gradient(145deg, #2575fc, #6a11cb);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.5);
+  transition: border-radius 0.2s, padding-top 0.2s;
+}
+
+.button-base {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  left: 0;
+  border-radius: 20px;
+  width: 100%;
+  height: calc(100% - 4px);
+  background-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 2px 2px rgba(0, 0, 0, 0.25);
+  transition: border-radius 0.2s, padding-top 0.2s;
+}
+
+.button-3d:active .button-bottom {
+  border-radius: 10px 10px 8px 8px / 8px;
+  padding-top: 0;
+}
+
+.button-3d:active .button-base {
+  border-radius: 10px 10px 8px 8px / 8px;
+}
+
+
+@media (max-width: 768px) {
+  .button-3d {
+    min-width: 3em; /* Smaller width */
+    min-height: 3em; /* Smaller height */
+    padding: 0 4px; /* Less padding */
+    margin: 8px; /* Adjust margin if needed */
+  }
+
+  .button-top {
+    padding: 6px 12px; /* Adjust padding for smaller buttons */
+    font-size: 18px; /* Smaller font size */
+  }
+
+  .button-bottom {
+    width: calc(100% - 6px); /* Adjust width */
+    height: calc(100% - 8px); /* Adjust height */
+  }
+
+  .button-base {
+    height: calc(100% - 2px); /* Adjust height */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: 480px) {
+  .button-3d {
+    min-width: 2.5em; /* Even smaller width */
+    min-height: 2.5em; /* Even smaller height */
+    padding: 0 2px; /* Minimal padding */
+    margin: 6px; /* Adjust margin if needed */
+  }
+
+  .button-top {
+    padding: 4px 8px; /* Adjust padding for very small buttons */
+    font-size: 16px; /* Smaller font size */
+  }
+
+  .button-bottom {
+    width: calc(100% - 4px); /* Adjust width */
+    height: calc(100% - 6px); /* Adjust height */
+  }
+
+  .button-base {
+    height: calc(100% - 4px); /* Adjust height */
+  }
+}
+
+
+
+/*yes or no 
+/* From Uiverse.io by bandirevanth */ 
+/* Switch starts here */
+.rocker {
+  display: inline-block;
+  position: relative;
+  /*
+  SIZE OF SWITCH
+  ==============
+  All sizes are in em - therefore
+  changing the font-size here
+  will change the size of the switch.
+  See .rocker-small below as example.
+  */
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  color: #888;
+  width: 7em;
+  height: 4em;
+  overflow: hidden;
+  border-bottom: 0.5em solid #eee;
+}
+
+.rocker-small {
+  font-size: 0.75em;
+ /* Sizes the switch */
+  margin: 1em;
+}
+
+.rocker::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #999;
+  border: 0.5em solid #eee;
+  border-bottom: 0;
+}
+
+.rocker input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.switch-left,
+.switch-right {
+  cursor: pointer;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.5em;
+  width: 3em;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.switch-left {
+  height: 2.4em;
+  width: 2.75em;
+  left: 0.85em;
+  bottom: 0.4em;
+  background-color: #ddd;
+  transform: rotate(15deg) skewX(15deg);
+}
+
+.switch-right {
+  right: 0.5em;
+  bottom: 0;
+  background-color: white;
+  color: #fff;
+}
+
+.switch-left::before,
+.switch-right::before {
+  content: "";
+  position: absolute;
+  width: 0.4em;
+  height: 2.45em;
+  bottom: -0.45em;
+  background-color: #ccc;
+  transform: skewY(-65deg);
+}
+
+.switch-left::before {
+  left: -0.4em;
+}
+
+.switch-right::before {
+  right: -0.375em;
+  background-color: transparent;
+  transform: skewY(65deg);
+}
+
+input:checked + .switch-left {
+  background-color: black;
+  color: #fff;
+  bottom: 0px;
+  left: 0.5em;
+  height: 2.5em;
+  width: 3em;
+  transform: rotate(0deg) skewX(0deg);
+}
+
+input:checked + .switch-left::before {
+  background-color: transparent;
+  width: 3.0833em;
+}
+
+input:checked + .switch-left + .switch-right {
+  background-color: #ddd;
+  color: #888;
+  bottom: 0.4em;
+  right: 0.8em;
+  height: 2.4em;
+  width: 2.75em;
+  transform: rotate(-15deg) skewX(-15deg);
+}
+
+input:checked + .switch-left + .switch-right::before {
+  background-color: #ccc;
+}
+
+/* Keyboard Users */
+input:focus + .switch-left {
+  color: #333;
+}
+
+input:checked:focus + .switch-left {
+  color: #fff;
+}
+
+input:focus + .switch-left + .switch-right {
+  color: #fff;
+}
+
+input:checked:focus + .switch-left + .switch-right {
+  color: #333;
+}
+
 
 /* Dark mode styling */
 body.dark-mode .form-label {
-  color: white !important; /* Change text color to black in dark mode */
+  color: white !important; /* Change text color to white in dark mode */
 }
 
-
 body.dark-mode {
-  background-color: #000 ;
+  background-color: #000;
   color: white;
 }
 
 body.dark-mode .header,
 body.dark-mode .sidenav {
-  background-color: #000 ;
+  background-color: #000;
 }
 
 body.dark-mode .sidenav a {
@@ -74,7 +1066,7 @@ body.dark-mode .sidenav a:hover {
 }
 
 body.dark-mode .toggle-label {
-  background: #333 ;
+  background: #333;
 }
 
 body.dark-mode .sun-icon {
@@ -85,11 +1077,10 @@ body.dark-mode .moon-icon {
   opacity: 1;
 }
 
-/* Additional dark mode styles for other elements if needed */
 body.dark-mode .container,
 body.dark-mode .cover,
 body.dark-mode .footer {
-  background-color: #000 ;
+  background-color: #000;
 }
 
 body.dark-mode .container,
@@ -98,7 +1089,6 @@ body.dark-mode .footer a:not(.nav-link) {
   color: white;
 }
 
-/* Ensure text remains readable in dark mode */
 body.dark-mode .nav-link {
   color: white;
 }
@@ -108,36 +1098,24 @@ body.dark-mode .nav-link:focus {
   text-decoration: underline white;
 }
 
-/* Dark mode styles for specific elements 
-body.dark-mode .shadow-1-strong,
-body.dark-mode .bg-white,
-body.dark-mode .my-5 {
-  background-color: black ;  
-  color: white;  
-}*/
 body.dark-mode .shadow-1-strong,
 body.dark-mode .shadow-1-strong.bg-white.my-5.p-5 {
   background-color: black !important;
-  color: white; /* Ensure text is readable */ 
+  color: white;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5) !important; /* White shadow */
-
-}
-
-body.dark-mode .shadow-1-strong.bg-white.my-5.p-5 {
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5) !important; /* Change shadow to white */
 }
 
 body.dark-mode .bg-white {
-  background-color: black ; /* Ensure this rule overrides others */
+  background-color: black; /* Ensure this rule overrides others */
 }
 
-/* Additional styles to ensure readability in dark mode */
 body.dark-mode .shadow-1-strong,
 body.dark-mode .bg-white,
 body.dark-mode .my-5 {
   color: white; /* Ensure text is readable against the dark background */
 }
 
+/* Toggle switch styling */
 .toggle-container {
   display: flex;
   align-items: center;
@@ -187,6 +1165,129 @@ body.dark-mode .my-5 {
   opacity: 1;
 }
 
+
+/*loader
+/* From Uiverse.io by adamgiebl */ 
+.loader {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.55);
+  border: 1px solid #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  background: transparent;
+  border: 1px dashed #444;
+  border-radius: 50%;
+  box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+      inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px dashed #444;
+  box-shadow: inset -5px -5px 25px rgba(0, 0, 0, 0.25),
+      inset 5px 5px 35px rgba(0, 0, 0, 0.25);
+}
+
+.loader span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 100%;
+  background: transparent;
+  transform-origin: top left;
+  animation: radar81 2s linear infinite;
+  border-top: 1px dashed #e8a87c;
+}
+
+.loader span::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #7400b8;
+  transform-origin: top left;
+  transform: rotate(-55deg);
+  filter: blur(30px) drop-shadow(20px 20px 20px #7400b8);
+}
+
+@keyframes radar81 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*css*/
+.progress-bar {
+  height: 20px;
+  transition: width 0.6s ease;
+}
+
+.bg-expert {
+  background-color: #00bfff; /* Blue */
+}
+
+.bg-average {
+  background-color: #ff69b4; /* Purple */
+}
+
+.bg-beginner {
+  background-color: #ffa500; /* Orange */
+}
+
+/*logn*/
+
+@media (max-width: 768px) {
+  .login-button {
+      /* Styles for mobile view */
+      width: 100%;
+      font-size: 18px;
+      padding: 15px 0;
+  }
+}
+
+.login-button {
+  background-color: #007bff; /* Blue background */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 50px; /* Oval shape */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
 
 /*additional certificate*/
 @media (max-width: 768px) {

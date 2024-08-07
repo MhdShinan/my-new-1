@@ -69,6 +69,9 @@ app.post('/send-email', (req, res) => {
     res.status(200).send('Email sent: ' + info.response);
   });
 });
+
+
+
 /*
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost:27017/admin-panel', {});

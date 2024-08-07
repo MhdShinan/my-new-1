@@ -1,3 +1,59 @@
+// JavaScript to handle responsive layout for mobile and tablet views
+
+document.addEventListener('DOMContentLoaded', function() {
+  function adjustLayout() {
+    const cardsContainer = document.querySelector('.cards-container');
+    const cards = document.querySelectorAll('.cards-container .card');
+    
+    // Check if the screen width is less than or equal to 768px (tablet and mobile view)
+    if (window.innerWidth <= 768) {
+      // Add class to stack images vertically
+      cardsContainer.classList.add('stack-vertically');
+    } else {
+      // Remove class for desktop view
+      cardsContainer.classList.remove('stack-vertically');
+    }
+  }
+
+  // Initial check
+  adjustLayout();
+
+  // Add event listener to handle window resizing
+  window.addEventListener('resize', adjustLayout);
+});
+
+
+//social media 
+ document.getElementById('instagram-button').addEventListener('click', function() {
+    window.location.href = 'https://www.instagram.com/m.shxnxn_69';
+  });
+
+  document.getElementById('linkedin-button').addEventListener('click', function() {
+    window.location.href = 'https://www.linkedin.com/in/mhmdshinan';
+  });
+
+  document.getElementById('github-button').addEventListener('click', function() {
+    window.location.href = 'https://github.com/MhdShinan';
+  });
+
+  document.getElementById('facebook-button').addEventListener('click', function() {
+    window.location.href = 'https://www.facebook.com/share/F5Jr1pxEoX9MyvvL/?mibextid=qi2Omg';
+  });
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const downloadButton = document.getElementById('download-button');
+
+  downloadButton.addEventListener('click', () => {
+    const link = document.createElement('a');
+    link.href = 'material-resume.pdf';
+    link.download = 'material-resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+});
 
 
 //login
@@ -244,6 +300,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  
 });
+
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('contact-form');
   const feedbackMessage = document.getElementById('feedback-message');
@@ -254,7 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const formData = new FormData(form);
 
-    // Show the loading GIF
+    // Show the loading animation
     loading.style.display = 'block';
 
     try {
@@ -273,11 +330,10 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       displayTypewriterEffect('An error occurred: ' + error.message, 'red', '/images/sad.gif');
     } finally {
-      // Hide the loading GIF after the request completes
+      // Hide the loading animation after the request completes
       loading.style.display = 'none';
     }
   });
-
   function displayTypewriterEffect(message, color, imageUrl) {
     feedbackMessage.textContent = '';
     feedbackMessage.style.color = color;
