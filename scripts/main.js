@@ -1,3 +1,5 @@
+//
+
 // JavaScript to handle responsive layout for mobile and tablet views
 
 document.addEventListener('DOMContentLoaded', function() {
