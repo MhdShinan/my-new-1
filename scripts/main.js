@@ -1,4 +1,4 @@
-//zoom
+//lable 
 
 
 // JavaScript to handle responsive layout for mobile and tablet views
